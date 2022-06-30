@@ -1,17 +1,16 @@
-answer = []
-
-def move(n, now, target):
+def move(n, now, target, arr):
     temp = [1,2,3]
     temp.remove(now)
     temp.remove(target)
     temp = temp[0]
     if n == 1:
-        answer.append([now,target])
+        arr.append([now,target])
     else:
-        move(n-1, now, temp)
-        answer.append([now,target])
-        move(n-1, temp, target)  
+        move(n-1, now, temp, arr)
+        arr.append([now,target])
+        move(n-1, temp, target, arr)  
 
 def solution(n):
-    move(n, 1, 3)
+    answer = []
+    move(n, 1, 3, answer)
     return answer
